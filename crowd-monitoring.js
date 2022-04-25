@@ -1,8 +1,9 @@
 /*
 v1.2.4
-- actionPAnel width → fit-content
+- Bug fix: actionPAnel width → fit-content
 - Typo: Excellet → Excellent
 - No more random messages. Just: "Good translation" 
+- Bug fix: Click on annotator body before pressing bad and selection disappeared
 - TODO: Add errata categories: Proper nouns, style
 - TODO: Maybe: tone → consistency / style   +   proper nouns
 - TODO: "So-so all" button on each req. (not yey implemented [ctrl+F sosofier])
@@ -699,16 +700,16 @@ let jab = `
 </div>
 
 <section id="s1" class="tripletBtnContainer">
-  <button id="badBtn" type="button" class="tripletBtn btn btn-danger" onclick="s3.dataset['mode'] = 'add'; tator.setView(['s0', 's3'], tator.populate())">Bad</button>
+  <button id="badBtn" type="button" class="tripletBtn btn btn-danger" onclick="tator.populate(); s3.dataset['mode'] = 'add'; tator.setView(['s0', 's3'], tator.populate())">Bad</button>
   <button id="sosoBtn" type="button" class="tripletBtn btn btn-info" onclick="tator.gradeSimply(0)">So so</button>
   <button id="goodBtn" type="button" class="tripletBtn btn btn-success" onclick="tator.gradeSimply(1)">Good</button>
 </section>
 
 <section id="s2" class="tripletBtnContainer">
   <button id="removeBtn" type="button" class="tripletBtn btn btn-secondary" style="color:black;" onclick="tator.deleteThisAnnotation()">Remove</button>
-  <button id="editBtn" type="button" class="tripletBtn btn btn-warning" onclick="s3.dataset['mode'] = 'edit'; tator.setView(['s0', 's3', 's5'], tator.populate())">Edit</button>
+  <button id="editBtn" type="button" class="tripletBtn btn btn-warning" onclick="tator.populate(); s3.dataset['mode'] = 'edit'; tator.setView(['s0', 's3', 's5'], tator.populate())">Edit</button>
   <section id="s6" class="tripletBtn">
-    <button id="addBtn" type="button" style="width:100%;" class="btn btn-primary" onclick="s3.dataset['mode'] = 'add'; tator.setView(['s0', 's3'], tator.populate())">Add</button>
+    <button id="addBtn" type="button" style="width:100%;" class="btn btn-primary" onclick="tator.populate(); s3.dataset['mode'] = 'add'; tator.setView(['s0', 's3'], tator.populate())">Add</button>
   </section>
 </section>
 
