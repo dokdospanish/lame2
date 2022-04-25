@@ -1314,7 +1314,7 @@ function waitForLoad() {
   let timedLoop = setInterval(()=>{
     let loadedReqs = document.querySelectorAll('.req_id');
     if (loadedReqs.length > 0) {
-      console.log('Loaded reqs ' + loadedReqs.length);
+      console.log('Loaded reqs: ' + loadedReqs.length);
       main();
       clearInterval(timedLoop);
     } else ( console.log('Awaiting reqs... ... ...'))
