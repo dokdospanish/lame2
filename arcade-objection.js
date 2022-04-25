@@ -1,5 +1,5 @@
 susLimit = 85;
-setting;
+setting = '';
 
 function lameify() {
   setting = (typeof setting == 'undefined' || setting == 'word') ? 'char' : 'word'; /* for objection similarity */
