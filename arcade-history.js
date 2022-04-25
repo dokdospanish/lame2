@@ -52,7 +52,7 @@ function main() {
       document.querySelector('.btn-primary.full-width').click()
     }
     else {
-      progressModal.value = 0;
+      progressBar.value = 0;
       progressModal.close();
       clearInterval(clickerInterval);
     }
