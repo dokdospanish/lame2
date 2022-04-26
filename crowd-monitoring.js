@@ -1289,22 +1289,20 @@ PromiseOut.then(() => {setTimeout(() => {t.remove();}, 1000);});
 function main() {
 
   if (!document.getElementById('tatorWin')) {
-
-  injectRemoteScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js')
-  .then(() => {
-    /* Supabase credentials */
-    const SUPABASE_URL = 'https://iedvqnynungxixxcledf.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaWF0IjoxNjM5MDUxNDUzLCJleHAiOjE5NTQ2Mjc0NTN9.NbzvOdTLfH9Aiw76MS3_Xz9co78iF8qMfgxMML8H-N0';
-    SB.client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    /*****/
-    page.setup();
-    /*****/
-  }).catch(error => {console.error(error);});
-
-  } else {
-
-  location.reload();
-
+    injectRemoteScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js')
+    .then(() => {
+      /* Supabase credentials */
+      const SUPABASE_URL = 'https://iedvqnynungxixxcledf.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaWF0IjoxNjM5MDUxNDUzLCJleHAiOjE5NTQ2Mjc0NTN9.NbzvOdTLfH9Aiw76MS3_Xz9co78iF8qMfgxMML8H-N0';
+      SB.client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      /*****/
+      page.setup();
+      /*****/
+    }).catch(error => {console.error(error);});
+  }
+  
+  else if (document.querySelector('#jumboTron')) {
+    location.reload();
   }
 }
 
