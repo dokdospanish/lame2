@@ -487,7 +487,7 @@ allResInPage.forEach( (res, index) => {
 },
 
 addEvents() {
-tatorWin.addEventListener('click', e => { e.stopPropagation() }); /* Don't close when clicked) */
+tatorWin.addEventListener('click', e => { e.preventDefault; /* Don't deselect text when clicking on tator body */ e.stopPropagation() /* Don't close when clicked) */ });
 document.addEventListener('keyup', e => { if(e.key === "Escape"){ tator.close(true) } });
 
 /*
@@ -700,16 +700,16 @@ let jab = `
 </div>
 
 <section id="s1" class="tripletBtnContainer">
-  <button id="badBtn" type="button" class="tripletBtn btn btn-danger" onclick="tator.populate(); s3.dataset['mode'] = 'add'; tator.setView(['s0', 's3'], tator.populate())">Bad</button>
+  <button id="badBtn" type="button" class="tripletBtn btn btn-danger" onclick="s3.dataset['mode'] = 'add'; tator.setView(['s0', 's3'], tator.populate())">Bad</button>
   <button id="sosoBtn" type="button" class="tripletBtn btn btn-info" onclick="tator.gradeSimply(0)">So so</button>
   <button id="goodBtn" type="button" class="tripletBtn btn btn-success" onclick="tator.gradeSimply(1)">Good</button>
 </section>
 
 <section id="s2" class="tripletBtnContainer">
   <button id="removeBtn" type="button" class="tripletBtn btn btn-secondary" style="color:black;" onclick="tator.deleteThisAnnotation()">Remove</button>
-  <button id="editBtn" type="button" class="tripletBtn btn btn-warning" onclick="tator.populate(); s3.dataset['mode'] = 'edit'; tator.setView(['s0', 's3', 's5'], tator.populate())">Edit</button>
+  <button id="editBtn" type="button" class="tripletBtn btn btn-warning" onclick="s3.dataset['mode'] = 'edit'; tator.setView(['s0', 's3', 's5'], tator.populate())">Edit</button>
   <section id="s6" class="tripletBtn">
-    <button id="addBtn" type="button" style="width:100%;" class="btn btn-primary" onclick="tator.populate(); s3.dataset['mode'] = 'add'; tator.setView(['s0', 's3'], tator.populate())">Add</button>
+    <button id="addBtn" type="button" style="width:100%;" class="btn btn-primary" onclick="s3.dataset['mode'] = 'add'; tator.setView(['s0', 's3'], tator.populate())">Add</button>
   </section>
 </section>
 
@@ -1231,7 +1231,8 @@ return (node.classList && node.classList.contains('highlighted')) ? node : close
 
 /* Tooltip */
 /* https://raw.githubusercontent.com/zoltantothcom/vanilla-js-tooltip/master/scripts/vanilla-js-tooltip.min.js */
-/* let */ Tooltip=function(t){function e(t,e,o,a){var i,s,r=t.getBoundingClientRect();switch(o){case"left":i=parseInt(r.left)-n-e.offsetWidth,parseInt(r.left)-e.offsetWidth<0&&(i=n);break;case"right":i=r.right+n,parseInt(r.right)+e.offsetWidth>document.documentElement.clientWidth&&(i=document.documentElement.clientWidth-e.offsetWidth-n);break;default:case"center":i=parseInt(r.left)+(t.offsetWidth-e.offsetWidth)/2}switch(a){case"center":s=(parseInt(r.top)+parseInt(r.bottom))/2-e.offsetHeight/2;break;case"bottom":s=parseInt(r.bottom)+n;break;default:case"top":s=parseInt(r.top)-e.offsetHeight-n}i=0>i?parseInt(r.left):i,s=0>s?parseInt(r.bottom)+n:s,e.style.left=i+"px",e.style.top=s+pageYOffset+"px"}var o=t.theme||"dark",a=t.delay||0,n=t.distance||10;document.body.addEventListener("mouseover",function(t){if(t.target.hasAttribute("data-tooltip")){var a=document.createElement("div");a.className="b-tooltip b-tooltip-"+o,a.innerHTML=t.target.getAttribute("data-tooltip"),document.body.appendChild(a);var n=t.target.getAttribute("data-position")||"center top",i=n.split(" ")[0];posVertical=n.split(" ")[1],e(t.target,a,i,posVertical)}}),document.body.addEventListener("mouseout",function(t){t.target.hasAttribute("data-tooltip")&&setTimeout(function(){document.body.removeChild(document.querySelector(".b-tooltip"))},a)})};
+/* let */ Tooltip=function(t){function e(t,e,o,a){var i,s,r=t.getBoundingClientRect();switch(o){case"left":i=parseInt(r.left)-n-e.offsetWidth,parseInt(r.left)-e.offsetWidth<0&&(i=n);break;case"right":i=r.right+n,parseInt(r.right)+e.offsetWidth>document.documentElement.clientWidth&&(i=document.documentElement.clientWidth-e.offsetWidth-n);break;default:case"center":i=parseInt(r.left)+(t.offsetWidth-e.offsetWidth)/2}switch(a){case"center":s=(parseInt(r.top)+parseInt(r.bottom))/2-e.offsetHeight/2;break;case"bottom":s=parseInt(r.bottom)+n;break;default:case"top":s=parseInt(r.top)-e.offsetHeight-n}i=0>i?parseInt(r.left):i,s=0>s?parseInt(r.bottom)+n:s,e.style.left=i+"px",e.style.top=s+pageYOffset+"px"}var o=t.theme||"dark",a=t.delay||0,n=t.distance||10;document.body.
+entListener("mouseover",function(t){if(t.target.hasAttribute("data-tooltip")){var a=document.createElement("div");a.className="b-tooltip b-tooltip-"+o,a.innerHTML=t.target.getAttribute("data-tooltip"),document.body.appendChild(a);var n=t.target.getAttribute("data-position")||"center top",i=n.split(" ")[0];posVertical=n.split(" ")[1],e(t.target,a,i,posVertical)}}),document.body.addEventListener("mouseout",function(t){t.target.hasAttribute("data-tooltip")&&setTimeout(function(){document.body.removeChild(document.querySelector(".b-tooltip"))},a)})};
 /* let */ tooltip = new Tooltip({
 theme: "dark",
 delay: 0
