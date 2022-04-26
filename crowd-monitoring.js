@@ -613,7 +613,7 @@ if (document.getElementById(elmnt.id + "header")) {
 
 function dragMouseDown(e) {
   e = e || window.event;
-  /* e.preventDefault(); */
+  e.preventDefault();
   if (excludeFromDrag.includes(e.target)) { return }
 
   /* get the mouse cursor position at startup */
