@@ -487,7 +487,8 @@ allResInPage.forEach( (res, index) => {
 },
 
 addEvents() {
-tatorWin.addEventListener('click', e => { e.preventDefault; /* Don't deselect text when clicking on tator body */ e.stopPropagation() /* Don't close when clicked) */ });
+tatorWin.addEventListener('mousedown', e => { e.preventDefault; /* Don't deselect text when clicking on tator body */ });
+tatorWin.addEventListener('click', e => { e.stopPropagation() /* Don't close when clicked) */ });
 document.addEventListener('keyup', e => { if(e.key === "Escape"){ tator.close(true) } });
 
 /*
