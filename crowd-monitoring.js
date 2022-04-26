@@ -1299,10 +1299,11 @@ function main() {
       /*****/
     }).catch(error => {console.error(error);});
   }
-  
+  /*
   else if (document.querySelector('#jumboTron')) {
     location.reload();
   }
+  */
 }
 
 
