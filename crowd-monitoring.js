@@ -487,7 +487,6 @@ allResInPage.forEach( (res, index) => {
 },
 
 addEvents() {
-tatorWin.addEventListener('mousedown', e => { e.preventDefault; /* Don't deselect text when clicking on tator body */ });
 tatorWin.addEventListener('click', e => { e.stopPropagation() /* Don't close when clicked) */ });
 document.addEventListener('keyup', e => { if(e.key === "Escape"){ tator.close(true) } });
 
@@ -613,7 +612,7 @@ if (document.getElementById(elmnt.id + "header")) {
 
 function dragMouseDown(e) {
   e = e || window.event;
-  e.preventDefault();
+  e.preventDefault(); /* Don't deselect text when clicking on tator body */
   if (excludeFromDrag.includes(e.target)) { return }
 
   /* get the mouse cursor position at startup */
